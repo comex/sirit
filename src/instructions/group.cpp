@@ -42,4 +42,19 @@ Id Module::OpGroupNonUniformShuffleXor(Id result_type, spv::Scope scope, Id valu
                  << mask << EndOp{};
 }
 
+Id Module::OpGroupNonUniformAll(Id result_type, spv::Scope scope, Id predicate) {
+   code->Reserve(5);
+   return *code << OpId{spv::Op::OpGroupNonUniformAll, result_type} << scope << predicate << EndOp{};
+}
+
+Id Module::OpGroupNonUniformAny(Id result_type, spv::Scope scope, Id predicate) {
+   code->Reserve(5);
+   return *code << OpId{spv::Op::OpGroupNonUniformAny, result_type} << scope << predicate << EndOp{};
+}
+
+Id Module::OpGroupNonUniformAllEqual(Id result_type, spv::Scope scope, Id value) {
+   code->Reserve(5);
+   return *code << OpId{spv::Op::OpGroupNonUniformAllEqual, result_type} << scope << value << EndOp{};
+}
+
 } // namespace Sirit
